@@ -44,6 +44,20 @@
                     <p class="ml-auto">Posted by mario on 6/13/2022</p>
                 </div>
             </div>
+            <div class="container bg-light">
+                <h3>Comments</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p>6/14/2022- luigi:</p>
+                        <p>This is awesome</p>
+                    </li>
+                    <li class="list-group-item">
+                        <p>6/15/2022- bowser</p>
+                        <p>no it isnt</p>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-primary">Add Comment</button>
+            </div>
         </article>
         <article class="post-card">
             <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
@@ -153,7 +167,22 @@
     </section>
 
     <section id="write-post">
-        
+        <div class="container">
+            <div class="card">
+                <div class="card-header banner">Create New Post</div>
+                <form class="post-menu">
+                    <div class="form-group">
+                        <label for="title">Title of Post: </label>
+                        <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content: </label>
+                        <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Post</button>
+                </form>
+            </div>
+        </div>
     </section>
   </body>
 </html>
