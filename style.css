@@ -1,5 +1,8 @@
+
+
 body {
     background-color: #f2b036;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .post-card {
@@ -9,4 +12,8 @@ body {
 .post-banner {
     background-color: #920292;
     color: #fff;
+}
+
+.btn-thin {
+    
 }
