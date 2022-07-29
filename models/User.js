@@ -40,7 +40,7 @@ User.init(
         timestamps: false, // Might need to be true
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'User',
     }
 )
 

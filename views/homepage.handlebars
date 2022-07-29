@@ -1,0 +1,154 @@
+<section id="timeline" class="container">
+    {{#each postSerialized as |post|}}
+        <article class="post-card">
+            <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                <h2>{{post.post_name}}</h2>
+            </div>
+            <div class="container bg-light flex-row">
+                <p>{{post.post_description}}</p>
+                <div class="d-flex align-items-end">
+                    <p class="ml-auto">Posted by {{post.User.username}} on {{post.date_created}}</p>
+                </div>
+            </div>
+            {{!-- <div class="container bg-light">
+                <h3>Comments</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p>6/14/2022- luigi:</p>
+                        <p>This is awesome</p>
+                    </li>
+                    <li class="list-group-item">
+                        <p>6/15/2022- bowser</p>
+                        <p>no it isnt</p>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-primary">Add Comment</button>
+            </div> --}}
+    
+        </article>
+        {{/each}}
+        {{!-- <article class="post-card">
+            <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                <h2>Why MVC is so important</h2>
+            </div>
+            <div class="container bg-light flex-row">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem dolor, quasi soluta accusantium blanditiis nobis. Dignissimos consectetur laudantium doloribus. Officia?</p>
+                <div class="d-flex align-items-end">
+                    <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                </div>
+            </div>
+        </article>
+        <article class="post-card">
+            <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                <h2>Why MVC is so important</h2>
+            </div>
+            <div class="container bg-light flex-row">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem dolor, quasi soluta accusantium blanditiis nobis. Dignissimos consectetur laudantium doloribus. Officia?</p>
+                <div class="d-flex align-items-end">
+                    <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                </div>
+            </div>
+        </article> --}}
+        
+        
+    </section>
+
+    <section id="login" class="container d-flex justify-content-around mb-2">
+        <div class="d-flex justify-content-around">
+
+            <div id="existing-user" class="card">
+                <h3>Login</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="login-username">Username: </label>
+                        <input type="text" class="form-control" name="login-username" id="login-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password: </label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                </form>
+            </div>
+            <div id="new-user" class="card">
+                <h3>Register</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="register-username">Username: </label>
+                        <input type="text" class="form-control" name="register-username">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password: </label>
+                        <input type="password" class="form-control" name="register-password">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard">
+        <div class="container">
+            <h2>Here are your most recent posts</h2>
+            <div class="card">
+                <div>
+                    <h3>Would you like to make a new post?</h3>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary btn-block">Click Here</button>
+                </div>
+            </div>
+            <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>Why MVC is so important</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>Why MVC is so important</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>Why MVC is so important</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="write-post">
+        <div class="container">
+            <div class="card">
+                <div class="card-header banner">Create New Post</div>
+                <form class="post-menu">
+                    <div class="form-group">
+                        <label for="title">Title of Post: </label>
+                        <input type="text" class="form-control" name="title" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content: </label>
+                        <textarea class="form-control" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </section>

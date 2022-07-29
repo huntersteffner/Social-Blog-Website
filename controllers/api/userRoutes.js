@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const {User} = require('../../models')
 
+// User routes tested and working
 router.post('/', async (req, res) => {
     try {
         const euData = await User.create(req.body)
@@ -8,11 +9,13 @@ router.post('/', async (req, res) => {
         // https://stackoverflow.com/questions/30002321/what-is-the-difference-between-save-and-create-in-sequelizejs
         
         req.session.save(() => {
-            req.session.user_id = euData.id
-            req.session.logged_in = true
+            req.session.userId = euData.id;
+            req.session.username = euData.username;
+            req.session.logged_in = true;
 
             res.status(200).json(euData)
         })
+
     } catch (err) {
         res.status(400).json(err)
     }
@@ -20,7 +23,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const euData = await User.findOne({where: {email: req.body.username}})
+        const euData = await User.findOne({where: {username: req.body.username}})
 
         if (!euData) {
             res.status(400).json({message: 'Incorrect username or password, please try again.'})
@@ -34,7 +37,8 @@ router.post('/login', async (req, res) => {
         }
 
         req.session.save(() => {
-            req.session.user_id = euData
+            req.session.userId = euData.id
+            req.session.username = euData.username
             req.session.logged_in = true
 
             res.json({user: euData, message: 'You are now logged in'})
