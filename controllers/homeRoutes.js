@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Post,User} = require('../models')
+const {Post,User, Comment} = require('../models')
 const withAuth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
@@ -9,6 +9,9 @@ router.get('/', async (req, res) => {
                 {
                     model: User,
                     attributes: ['username']
+                },
+                {
+                    model: Comment
                 }
             ]
         })
@@ -16,6 +19,18 @@ router.get('/', async (req, res) => {
         const postSerialized = allPosts.map((post) => post.get({
             plain: true
         }))
+
+        const allComments = await Comment.findAll()
+
+        const commentsSerialized = allComments.map((comment) => comment.get({
+            plain: true
+        }))
+
+        console.log(commentsSerialized)
+
+
+
+        
 
         res.render('homepage', {
             postSerialized,
