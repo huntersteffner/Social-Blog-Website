@@ -14,7 +14,7 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
     <div class="jumbotron-fluid bg-light d-flex justify-content-around">
@@ -22,24 +22,24 @@
       <nav class="navbar">
           <ul class="navbar-nav flex-row justify-content-around">
               <li class="nav-item mx-2">
-                  <a class="nav-link" href="./">Home</a>
+                  <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item mx-2">
-                  <a class="nav-link" href="./dashboard">Dashboard</a>
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
               </li>
               {{#if logged_in}}
               <li class="nav-item mx-2">
                   <a id="logout-btn" class="nav-link" href="#">Logout</a>
               </li>
               <li class="nav-item mx-2 hidden">
-                  <a class="nav-link" href="./login">Login</a>
+                  <a class="nav-link" href="/login">Login</a>
               </li>
               {{else}}
               <li class="nav-item mx-2 hidden">
                   <a id="logout-btn" class="nav-link" href="#">Logout</a>
               </li>
               <li class="nav-item mx-2">
-                  <a class="nav-link" href="./login">Login</a>
+                  <a class="nav-link" href="/login">Login</a>
               </li>
               {{/if}}
           </ul>
@@ -48,6 +48,6 @@
 
     {{{body}}}
 
-    <script src="./js/script.js"></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>

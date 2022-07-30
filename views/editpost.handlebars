@@ -1,19 +1,21 @@
+
  <section id="write-post">
         <div class="container">
             <div class="card">
-                <div class="card-header banner">Create New Post</div>
+                <div class="card-header banner">Edit Your Post</div>
                 <form id="post-form" class="post-menu">
                     <div class="form-group">
                         <label for="title">Title of Post: </label>
-                        <input type="text" class="form-control" name="title" id="post_name">
+                        <input type="text" placeholder="{{post.post_name}}" class="form-control" name="title" id="post_name">
                     </div>
                     <div class="form-group">
                         <label for="content">Content: </label>
-                        <textarea class="form-control" id="post_description" rows="5"></textarea>
+                        <textarea class="form-control" id="post_description" rows="5">{{post.post_description}}</textarea>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary">Post</button>
+                    <button type="submit" class="btn btn-outline-primary">Submit Update</button>
                 </form>
             </div>
         </div>
     </section>
-    <script src="./js/writepost.js"></script>
+
+    <script src="/js/writepost.js"></script>

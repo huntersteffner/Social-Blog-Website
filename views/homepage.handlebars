@@ -10,22 +10,10 @@
                     <p class="ml-auto">Posted by {{post.User.username}} on {{post.date_created}}</p>
                 </div>
             </div>
-            {{!-- <div class="container bg-light">
-                <h3>Comments</h3>
-                <ul class="list-group">
-                    {{#each}}
-                    <li class="list-group-item">
-                        <p>{{..post.Comment.date_created}}- Commenter Id: {{..post.Comment.userId}}:</p>
-                        <p>{{..post.Comment.content}}</p>
-                    </li>
-                    {{/each}}
-                    <li class="list-group-item">
-                        <p>6/15/2022- bowser</p>
-                        <p>no it isnt</p>
-                    </li>
-                </ul>
-                <button class="btn btn-outline-primary">Add Comment</button>
-            </div> --}}
+            <div class="bg-light">
+
+            <button class="btn btn-outline-primary">Add Comment</button>
+            </div>
     
         </article>
         {{/each}}

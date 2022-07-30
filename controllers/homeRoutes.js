@@ -53,9 +53,10 @@ router.get('/post/:id', async (req, res) => {
         })
 
         const post = postFromId.get({plain: true})
+        console.log(post)
 
-        res.render('post', {
-            ...post,
+        res.render('editpost', {
+            post,
             logged_in: req.session.logged_in
         })
     } catch (err) {
@@ -136,7 +137,7 @@ router.get('/writepost', async (req,res) => {
     }
 })
 
-router.get('/updatepost/:userId', async (req, res) => {
+router.get('/editpost/:id', async (req, res) => {
     try {
         if(req.session.logged_in) {
             const postFromId = await Post.findByPk(req.params.userId)
@@ -145,7 +146,7 @@ router.get('/updatepost/:userId', async (req, res) => {
                 plain: true
             }))
             console.log(postSerialized)
-            res.render('writepost')
+            res.render('editpost')
         } else {
             res.redirect('login')
         }
