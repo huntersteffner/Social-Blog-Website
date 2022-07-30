@@ -76,7 +76,6 @@ router.get('/login', (req,res) => {
 })
 
 router.get('/dashboard', async (req, res) => {
-    
     try {
         if(req.session.logged_in) {
             const allUserPosts = await Post.findAll({
@@ -107,9 +106,37 @@ router.get('/dashboard', async (req, res) => {
 
     } catch (err) {
         res.status(500).json(err)
-    }
+    } 
+})
 
-    
+router.get('/writepost', async (req,res) => {
+    try {
+        if(req.session.logged_in) {
+            res.render('writepost')
+        } else {
+            res.redirect('login')
+        }
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.get('/updatepost/:userId', async (req, res) => {
+    try {
+        if(req.session.logged_in) {
+            const postFromId = await Post.findByPk(req.params.userId)
+            console.log(postFromId)
+            const postSerialized = postFromId.map((post) => post.get({
+                plain: true
+            }))
+            console.log(postSerialized)
+            res.render('writepost')
+        } else {
+            res.redirect('login')
+        }
+    } catch(err) {
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router

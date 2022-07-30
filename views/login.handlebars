@@ -3,16 +3,16 @@
 
             <div id="existing-user" class="card">
                 <h3>Login</h3>
-                <form>
+                <form id="login-form" method="post">
                     <div class="form-group">
                         <label for="login-username">Username: </label>
                         <input type="text" class="form-control" name="login-username" id="login-username">
                     </div>
                     <div class="form-group">
                         <label for="login-password">Password: </label>
-                        <input type="password" class="form-control">
+                        <input type="password" id="login-password" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                    <button id="login-btn" type="submit" class="btn btn-outline-primary">Login</button>
                 </form>
             </div>
             <div id="new-user" class="card">
@@ -31,3 +31,4 @@
             </div>
         </div>
     </section>
+    <script src="./js/login.js"></script>
