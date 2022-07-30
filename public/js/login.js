@@ -4,65 +4,62 @@ const loginForm = document.getElementById('login-form')
 const registerForm =document.getElementById('register-form')
 
 
-
-loginForm.addEventListener('submit', (e) => {
+const login = async (e) => {
     e.preventDefault()
 
-    console.log("it works")
 
-    const username = document.getElementById('login-username').value
+    const username = document.getElementById('login-username').value.trim()
 
-    const password = document.getElementById('login-password').value
+    const password = document.getElementById('login-password').value.trim()
 
     if(username && password) {
 
-        try {
-            fetch('./api/users/login', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,password
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  }
+        const response = await fetch('/api/users/login', {
+            method: 'POST',
+            body: JSON.stringify({username, password}),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              }
+        })
 
-                  
-            }).then(document.location.replace('./'))
-            console.log('logged in')
-        } catch (err) {
-            console.log(err)
+        if(response.ok) {
+            document.location.replace('/dashboard')
+        } else {
+            alert(response.statusText)
         }
     }
+}
 
-})
-
-registerForm.addEventListener('submit', (e) => {
+const register = async (e) => {
     e.preventDefault()
 
-    console.log("it works")
 
     const username = document.getElementById('register-username').value
 
     const password = document.getElementById('register-password').value
 
     if(username && password) {
+        const response = await fetch('./api/users/', {
+            method: 'POST',
+            body: JSON.stringify({
+                username,password
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            }
+        })
 
-        try {
-            fetch('./api/users/', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username,password
-                }),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                  }
-
-                  
-            }).then(document.location.replace('./'))
-            console.log('logged in')
-        } catch (err) {
-            console.log(err)
+        if(response.ok) {
+            document.location.replace('/dashboard')
+        } else {
+            alert(response.statusText)
         }
+
     }
 
-})
+}
+
+
+loginForm.addEventListener('submit', login)
+
+registerForm.addEventListener('submit', register)
