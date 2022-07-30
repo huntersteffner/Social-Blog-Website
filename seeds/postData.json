@@ -1,14 +1,17 @@
 [
     {
-        "title": "I like rice",
-        "content": "Rice is good when you're hungry and want 2000 of something."
+        "post_name": "I like rice",
+        "post_description": "Rice is good when you're hungry and want 2000 of something.",
+        "userId": 1
     },
     {
-        "title": "Yeah Dawg",
-        "content": "I like to run"
+        "post_name": "Yeah Dawg",
+        "post_description": "I like to run",
+        "userId": 2
     },
     {
-        "title": "Where is the beer",
-        "content": "I need a drink"
+        "post_name": "Where is the beer",
+        "post_description": "I need a drink",
+        "userId": 3
     }
 ]

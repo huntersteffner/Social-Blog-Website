@@ -75,4 +75,41 @@ router.get('/login', (req,res) => {
     res.render('login')
 })
 
+router.get('/dashboard', async (req, res) => {
+    
+    try {
+        if(req.session.logged_in) {
+            const allUserPosts = await Post.findAll({
+                where: {
+                    userId: req.session.userId
+                },
+                include: [
+                    {
+                        model: User,
+                        attributes: ['username']
+                    }
+                ]
+            })
+
+            console.log(req.session)
+    
+            const allUserPostsSerialized = allUserPosts.map((post) => post.get({
+                plain: true
+            }))
+    
+            res.render('dashboard', {
+                allUserPostsSerialized,
+                logged_in: req.session.logged_in
+            })
+        } else {
+            res.redirect('login')
+        }
+
+    } catch (err) {
+        res.status(500).json(err)
+    }
+
+    
+})
+
 module.exports = router

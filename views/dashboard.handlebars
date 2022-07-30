@@ -1,0 +1,48 @@
+<section id="dashboard">
+        <div class="container">
+            <h2>Here are your most recent posts</h2>
+            <div class="card">
+                <div>
+                    <h3>Would you like to make a new post?</h3>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary btn-block">Click Here</button>
+                </div>
+            </div>
+            {{#each allUserPostsSerialized as |post|}}
+            <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>{{post.post_name}}</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by {{post.User.username}} on {{post.date_created}}</p>
+                    </div>
+                </div>
+            </article>
+            {{/each}}
+            {{!-- <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>Why MVC is so important</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                    </div>
+                </div>
+            </article>
+            <article class="post-card">
+                <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">
+                    <h4>Why MVC is so important</h4>
+                </div>
+                <div class="container bg-light flex-row">
+                    <div class="d-flex align-items-end">
+                        <button class="btn btn-outline-primary">Update Post</button>
+                        <p class="ml-auto">Posted by mario on 6/13/2022</p>
+                    </div>
+                </div>
+            </article>
+        </div> --}}
+    </section>

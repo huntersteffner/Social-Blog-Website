@@ -1,0 +1,23 @@
+
+
+body {
+    background-color: #f2b036;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.post-card {
+    margin: 2.5rem;
+}
+
+.post-banner {
+    background-color: #920292;
+    color: #fff;
+}
+.banner {
+    background-color: #920292;
+    color: #fff;
+}
+.post-menu {
+    padding: 2rem;
+}
+
