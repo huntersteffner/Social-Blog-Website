@@ -1,23 +1,21 @@
-const postForm = document.getElementById('post-form')
+const writePost = document.getElementById('write-post')
+const editBtn = document.getElementById('edit-btn')
 
-
-const makePost = async (e) => {
+const makeEdit = async(e) => {
     e.preventDefault()
+    const id = writePost.getAttribute('data-type')
+    console.log(id)
     
     const post_name = document.getElementById('post_name').value
     const post_description = document.getElementById('post_description').value
 
-    
-
     if(post_name && post_description) {
-        const response = await fetch('/api/posts/', {
-            method: 'POST',
+        const response = await fetch(`/api/posts/${id}`, {
+            method: 'PUT',
             body: JSON.stringify({post_name,post_description}),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             }
-
-            
         })
 
         if(response.ok) {
@@ -25,9 +23,7 @@ const makePost = async (e) => {
         } else {
             alert(response.statusText)
         }
-
     }
 }
 
-postForm.addEventListener('submit', makePost)
-
+editBtn.addEventListener('click', makeEdit)

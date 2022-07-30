@@ -1,5 +1,5 @@
 
- <section id="write-post">
+ <section data-type="{{post.id}}" id="write-post">
         <div class="container">
             <div class="card">
                 <div class="card-header banner">Edit Your Post</div>
@@ -12,10 +12,10 @@
                         <label for="content">Content: </label>
                         <textarea class="form-control" id="post_description" rows="5">{{post.post_description}}</textarea>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary">Submit Update</button>
+                    <button id="edit-btn" type="submit" class="btn btn-outline-primary">Submit Update</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <script src="/js/writepost.js"></script>
+    <script src="/js/editpost.js"></script>

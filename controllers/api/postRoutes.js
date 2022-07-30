@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const { Post} = require('../../models')
+const { update } = require('../../models/User')
 const withAuth = require('../../utils/auth')
 // const { post } = require('./userRoutes')
 
@@ -37,6 +38,33 @@ router.delete('/:id', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
+})
+
+router.put('/:id', withAuth, async (req, res) => {
+    // Post.update(req.body, {
+    //     where: {
+    //         id: req.params.id
+    //     }
+    // })
+    // .then((post) => {
+    //     console.log(post)
+    // }) 
+
+    Post.update(req.body, {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then((post) => {
+        res.json(post)
+    })
+    .catch((err) => {
+        console.log(err)
+        res.json(err)
+    })
+
+    
+    
 })
 
 module.exports = router
