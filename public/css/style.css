@@ -4,7 +4,9 @@ body {
     background-color: #f2b036;
     font-family: 'Fira Sans', sans-serif;
 }
-
+.hidden {
+    display: none;
+}
 .post-card {
     margin: 2.5rem;
 }
