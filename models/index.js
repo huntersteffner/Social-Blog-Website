@@ -6,10 +6,6 @@ Post.belongsTo(User, {
     foreignKey: 'userId',
     onDelete: 'CASCADE'
 })
-// User.hasMany(Post, {
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE'
-// })
 Post.hasMany(Comment, {
     foreignKey: 'postId',
     onDelete: 'CASCADE'
