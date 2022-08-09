@@ -34,3 +34,21 @@ const logout = async () => {
     }
 }
 logoutBtn.addEventListener('click', logout)
+
+const directToCommentsPage = async (e) => {
+    if(e.target.hasAttribute('data-id')) {
+        console.log('it worked')
+        const id = e.target.getAttribute('data-id')
+
+
+        await document.location.replace(`/comments/${id}`)
+
+        if (response.ok) {
+            document.location.replace(`/comments/3`)
+        } else {
+            alert('Failed to delete post')
+        }
+    }
+}
+
+document.querySelector('#timeline').addEventListener('click', directToCommentsPage)

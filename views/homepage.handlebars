@@ -12,11 +12,15 @@
             </div>
             <div class="bg-light">
 
-            <button class="btn btn-outline-primary">Add Comment</button>
+            <button data-id="{{post.id}}" class="btn btn-outline-primary">Add Comment</button>
+            {{!-- <a data-id="{{post.id}}" href="#" class="btn btn-outline-primary">Add Comment</a> --}}
             
             </div>
     
         </article>
+        <div>
+            {{content}}
+        </div>
         {{/each}}
         {{!-- <article class="post-card">
             <div class="jumbotron mb-0 d-flex justify-content-between align-items-center post-banner">

@@ -63,6 +63,32 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
+router.get('/comments/:id', async (req, res) => {
+    try {
+        const postFromId = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    include: [User]
+                }
+            ]
+        })
+
+        const post = postFromId.get({plain: true})
+        console.log(post)
+
+        res.render('comments', {
+            post,
+            logged_in: req.session.logged_in
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 
 router.get('/profile', withAuth, async(req, res) => {
     try {
@@ -84,7 +110,7 @@ router.get('/profile', withAuth, async(req, res) => {
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
-        res.redirect('/profile')
+        res.redirect('/dashboard')
         return
     }
 

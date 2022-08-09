@@ -34,12 +34,12 @@ const register = async (e) => {
     e.preventDefault()
 
 
-    const username = document.getElementById('register-username').value
+    const username = document.getElementById('register-username').value.trim()
 
-    const password = document.getElementById('register-password').value
+    const password = document.getElementById('register-password').value.trim()
 
     if(username && password) {
-        const response = await fetch('./api/users/', {
+        const response = await fetch('/api/users/', {
             method: 'POST',
             body: JSON.stringify({
                 username,password
