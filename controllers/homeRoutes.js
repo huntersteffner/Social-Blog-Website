@@ -2,6 +2,7 @@ const router = require('express').Router()
 const {Post,User, Comment} = require('../models')
 const withAuth = require('../utils/auth')
 
+// Homepage
 router.get('/', async (req, res) => {
     try {
         const allPosts = await Post.findAll({
@@ -40,7 +41,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
+// URL for individual post
 router.get('/post/:id', async (req, res) => {
     try {
         const postFromId = await Post.findByPk(req.params.id, {
@@ -63,6 +64,7 @@ router.get('/post/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
+// URL for adding comments on individual post
 router.get('/comments/:id', async (req, res) => {
     try {
         const postFromId = await Post.findByPk(req.params.id, {
@@ -89,7 +91,7 @@ router.get('/comments/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
+// URL to profile page
 router.get('/profile', withAuth, async(req, res) => {
     try {
         const euData = await User.findByPk(req.session.user_id, {
@@ -107,7 +109,7 @@ router.get('/profile', withAuth, async(req, res) => {
         res.status(500).json(err)
     }
 })
-
+// URL for login page
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
         res.redirect('/dashboard')
@@ -116,7 +118,7 @@ router.get('/login', (req,res) => {
 
     res.render('login')
 })
-
+// URL for dashboard page
 router.get('/dashboard', async (req, res) => {
     try {
         if(req.session.logged_in) {
@@ -150,7 +152,7 @@ router.get('/dashboard', async (req, res) => {
         res.status(500).json(err)
     } 
 })
-
+// URL to page where you write a post
 router.get('/writepost', async (req,res) => {
     try {
         if(req.session.logged_in) {
@@ -162,7 +164,7 @@ router.get('/writepost', async (req,res) => {
         res.status(500).json(err)
     }
 })
-
+// URL where you go to edit posts by in
 router.get('/editpost/:id', async (req, res) => {
     try {
         if(req.session.logged_in) {

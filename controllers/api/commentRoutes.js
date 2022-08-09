@@ -3,12 +3,13 @@ const { Comment } = require('../../models')
 const withAuth = require('../../utils/auth')
 const {post} = require('./userRoutes')
 
+// Get all comments
 router.get('/', async (req, res) => {
     await Comment.findAll({})
     .then((commentData) => res.json(commentData))
     .catch(err => res.status(500).json(err))
 })
-
+// Create a comment
 router.post('/', withAuth, async(req, res) => {
     if(req.session) {
        await Comment.create({
@@ -20,7 +21,7 @@ router.post('/', withAuth, async(req, res) => {
        .catch(err => res.status(500).json(err))
     }
 })
-
+// Delete a comment
 router.delete('/:id', withAuth, async (req, res) => {
     await Comment.destroy({
         where: {

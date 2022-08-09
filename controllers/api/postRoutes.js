@@ -4,6 +4,7 @@ const { update } = require('../../models/User')
 const withAuth = require('../../utils/auth')
 // const { post } = require('./userRoutes')
 
+// Route to make a post
 router.post('/', withAuth, async(req,res) => {
     console.log(req.body)
     try {
@@ -19,7 +20,7 @@ router.post('/', withAuth, async(req,res) => {
         res.status(400).json(err)
     }
 })
-
+// Delete post
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const postDelete = await Post.destroy({
@@ -39,16 +40,8 @@ router.delete('/:id', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 })
-
+// Update post
 router.put('/:id', withAuth, async (req, res) => {
-    // Post.update(req.body, {
-    //     where: {
-    //         id: req.params.id
-    //     }
-    // })
-    // .then((post) => {
-    //     console.log(post)
-    // }) 
 
     Post.update(req.body, {
         where: {

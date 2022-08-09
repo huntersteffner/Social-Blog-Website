@@ -1,7 +1,7 @@
 const commentForm = document.querySelector("#comment-form")
-
+// Post id is needed to determine where the API route goes
 const postId = commentForm.getAttribute('data-post')
-
+// Function to write comment
 const commentFormHandler = async e => {
     e.preventDefault();
   

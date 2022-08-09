@@ -4,23 +4,7 @@ const loginLink = document.getElementById('login-link')
 
 const logoutBtn = document.getElementById('logout-btn')
 
-// logoutBtn.addEventListener('click', () => {
-//     fetch('./api/users/logout', {
-//         method: 'POST',
-
-//     }).then(document.location.replace('./')
-// })
-
-// const checkIfLogged = (req, res) => {
-//     if(req.session.logged_in) {
-//         console.log('logged in')
-//     } else if (!req.session.logged_in) {
-//         console.log('logged out')
-//     }
-// }
-// checkIfLogged()
-
-
+// Function to log out user
 const logout = async () => {
     const response = await fetch('./api/users/logout', {
         method: 'POST',
@@ -35,6 +19,7 @@ const logout = async () => {
 }
 logoutBtn.addEventListener('click', logout)
 
+// Function send user to comments page
 const directToCommentsPage = async (e) => {
     if(e.target.hasAttribute('data-id')) {
         console.log('it worked')

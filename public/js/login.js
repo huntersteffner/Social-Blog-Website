@@ -3,7 +3,7 @@ const loginBtn = document.getElementById('login-btn')
 const loginForm = document.getElementById('login-form')
 const registerForm =document.getElementById('register-form')
 
-
+// Function to log in
 const login = async (e) => {
     e.preventDefault()
 
@@ -29,7 +29,7 @@ const login = async (e) => {
         }
     }
 }
-
+// Function to register
 const register = async (e) => {
     e.preventDefault()
 

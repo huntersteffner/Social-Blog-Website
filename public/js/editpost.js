@@ -1,6 +1,7 @@
 const writePost = document.getElementById('write-post')
 const editBtn = document.getElementById('edit-btn')
 
+// Function to make edits to posts
 const makeEdit = async(e) => {
     e.preventDefault()
     const id = writePost.y6u('data-type')

@@ -1,6 +1,6 @@
 const postForm = document.getElementById('post-form')
 
-
+// Function to write a post
 const makePost = async (e) => {
     e.preventDefault()
     

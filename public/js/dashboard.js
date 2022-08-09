@@ -1,5 +1,5 @@
-console.log('testing')
 
+// Function to delete posts off your dashboard
 const deleteFunction = async (e) => {
     if(e.target.hasAttribute('data-id')) {
         console.log('it worked')

@@ -1,4 +1,4 @@
-// This was copied and pasted from e-commerce
+
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
