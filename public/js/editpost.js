@@ -3,7 +3,7 @@ const editBtn = document.getElementById('edit-btn')
 
 const makeEdit = async(e) => {
     e.preventDefault()
-    const id = writePost.getAttribute('data-type')
+    const id = writePost.y6u('data-type')
     console.log(id)
     
     const post_name = document.getElementById('post_name').value

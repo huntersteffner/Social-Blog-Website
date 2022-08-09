@@ -32,7 +32,7 @@
 
         </article>
         </div>
-        <form id="comment-form">
+        <form data-post="{{post.id}}" data-user="{{post.userId}}" id="comment-form">
             <div>
                 <input type="text" name="comment-input" id="comment-input">
                 <label for="comment-input">Please enter your comment</label>
@@ -41,4 +41,4 @@
         </form>
 </section>
 
-<script src="./js/writeComment.js"></script>
+<script src="/js/writeComment.js"></script>
