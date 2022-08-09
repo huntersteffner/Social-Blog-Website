@@ -10,7 +10,7 @@
 
 ## Description
 
-This is a simiple blog website that was made so that the author could practice making api routes in Express.js. It is a fully functioning blog with a frontend and backend. Users can register a profile, logout, log back in, create posts, edit posts, delete posts, and leave comments.
+This is a simiple blog website that was made so that the author could practice making api routes in Express.js. It is a fully functioning blog with a frontend and backend. Users can register a profile, logout, log back in, create posts, edit posts, delete posts, and leave comments. It also logs a user out after five minutes of inactivity
 
 ## Installation
 
@@ -27,7 +27,7 @@ npm i
 
 ## Usage
 
-This can be used as a templete for a basic blog site. It can then be customized to suit one's needs
+This can be used as a templete for a basic blog site. It can then be customized to suit one's needs.
 
 
 ## Screenshot
